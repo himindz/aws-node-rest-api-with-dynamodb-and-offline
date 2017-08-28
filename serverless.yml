@@ -5,15 +5,12 @@ frameworkVersion: ">=1.1.0 <2.0.0"
 plugins:
   - serverless-dynamodb-local
   - serverless-offline
+  - serverless-plugin-simulate
 
 custom:
-  dynamodb:
-    start:
-      port: 8000
-      inMemory: true
-      migrate: true
-    migration:
-      dir: offline/migrations
+  simulate:
+    services: docker-compose.yml
+
 
 provider:
   name: aws
