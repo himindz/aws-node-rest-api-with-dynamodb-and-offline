@@ -5,10 +5,19 @@
   "repository": "",
   "author": "Christoph Gysin <christoph.gysin@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "sls:lambda": "sls simulate lambda -p 4000",
+    "sls:simulate": "sls simulate apigateway -p 5000 --lambda-port 4000"
+  },
   "dependencies": {
     "aws-sdk": "^2.12.0",
     "serverless-dynamodb-local": "^0.2.18",
     "serverless-offline": "^3.8.3",
     "uuid": "^2.0.3"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+    "serverless": "^1.20.2",
+    "serverless-plugin-simulate": "0.0.17"
   }
 }
