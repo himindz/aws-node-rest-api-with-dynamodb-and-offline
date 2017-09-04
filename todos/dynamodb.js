@@ -6,7 +6,7 @@ let options = {};
 
 // connect to local DB if running offline
   options = {
-    region: 'localhost',
+    region: 'us-east-1',
     endpoint: 'http://172.17.0.1:8000',
   };
 
