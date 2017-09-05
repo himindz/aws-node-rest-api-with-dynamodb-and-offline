@@ -1,0 +1,5 @@
+.sls-simulate-registry
+**/jmeter.log
+**/*.jtl
+**/*.jmx
+node_modules
