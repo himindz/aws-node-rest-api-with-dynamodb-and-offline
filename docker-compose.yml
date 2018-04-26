@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  s3:
+    image: strobo/moto
+    command: [s3, "-H", "0.0.0.0"]
+    ports:
+      - "5000:5000"
+  dynamodb:
+    image: deangiberson/aws-dynamodb-local
+    ports:
+      - "8000:8000"

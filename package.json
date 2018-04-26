@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "sls:lambda": "sls simulate lambda -p 4000",
-    "sls:simulate": "sls simulate apigateway -p 5000 --lambda-port 4000"
+    "sls:simulate": "sls simulate apigateway -p 3000 --lambda-port 4000",
+    "sls:seed": "node test/seed.js",
+    "benchmark": "./scripts/simulate_start.sh && ./scripts/benchmark.sh"
   },
   "dependencies": {
     "aws-sdk": "^2.12.0",

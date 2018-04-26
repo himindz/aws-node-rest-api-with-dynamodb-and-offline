@@ -11,7 +11,6 @@ custom:
   simulate:
     services: docker-compose.yml
 
-
 provider:
   name: aws
   runtime: nodejs4.3

@@ -3,6 +3,14 @@ title: AWS Serverless REST API with DynamoDB and offline support example in Node
 description: This example demonstrates how to run a service locally, using the 'serverless-offline' plugin. It provides a REST API to manage Todos stored in DynamoDB.
 layout: Doc
 -->
+# Run Benchmark
+
+```bash
+npm install
+npm run benchmark
+```
+
+
 # Serverless REST API with DynamoDB and offline support
 
 This example demonstrates how to run a service locally, using the

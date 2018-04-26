@@ -10,6 +10,13 @@ duration = Hash.new
 memory = Hash.new
 billed_duration = Hash.new
 graphs = Hash.new
+def nearest_multiple_of_64 number
+  unless number.nil? 
+    return 128 if number <= 128
+    return (number/64).ceil * 64
+  end  
+  return 128
+end
 
 
 def get_template()
@@ -86,10 +93,7 @@ def get_template()
     </html>  
   }
 end
-def nearest_multiple_of_64 number
-  return 128 if number <= 128
-  (number/64).ceil * 64
-end
+
 
 class ReportGenerator
   include ERB::Util
@@ -138,11 +142,11 @@ class ReportGenerator
     @memory_needed = memory.max
    
     @function_memory_size = nearest_multiple_of_64 @memory_needed
-    puts @function_memory_size
-
+    
     @average_execution_time = (billed_execution.inject{ |sum, el| sum + el }.to_f / billed_execution.size()).round(-2)
     @request_charges = 30*0.20
     @compute_ms100 = (@average_execution_time/100)*30000000
+    
     @compute_charges = aws_prices[@function_memory_size.to_s]['price']*@compute_ms100
     @total_end_points = graphs['Memory'].keys.length
     puts "Function Memory Size: #{@function_memory_size}"
